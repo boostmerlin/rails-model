@@ -21,6 +21,7 @@ module RM
     # config.i18n.default_locale = :de
 
     console do
+      require "application_helper"
       puts 'connect db...'
       ActiveRecord::Base.connection
     end
