@@ -1,5 +1,5 @@
 
-MODELS_DIR = "app/models".freeze
+MODELS_DIR = 'app/models'.freeze
 
 if ENV['GM']
   db = ActiveRecord::Base.configurations[Rails.env]
