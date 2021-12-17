@@ -77,7 +77,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  if OS.unix? and File::exist?('bin/env.sh')
+  if OS.unix? && File.exist?('bin/env.sh')
     system('bash bin/env.sh')
   end
 end

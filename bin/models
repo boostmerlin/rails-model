@@ -3,7 +3,7 @@ require 'pathname'
 require 'yaml'
 require 'erb'
 
-APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
+APP_ROOT = Pathname.new File.expand_path('..', __dir__)
 
 Dir.chdir APP_ROOT do
   env = ARGV.first
@@ -18,9 +18,13 @@ Dir.chdir APP_ROOT do
   db_options = YAML.load ERB.new(IO.read('config/database.yml')).result
 
   env ||= 'dev'
-  env = env.start_with?('dev') && 'development'
-  env = env.start_with?('pro') && 'production' if env != 'development'
+  env = 'development' if env.start_with?('dev')
+  env = 'production' if env.start_with?('pro')
   db = db_options[env]
-  cmd = "rmre -a mysql2 -d #{db['database']} -o app/models -u #{db['username']} -p #{db['password']} -s #{db['host']}"
-  system(cmd)
+  if db.nil?
+    puts "no db config #{env}"
+  else
+    cmd = "rmre -a mysql2 -d #{db['database']} -o app/models -u #{db['username']} -p #{db['password']} -s #{db['host']}"
+    system(cmd)
+  end
 end

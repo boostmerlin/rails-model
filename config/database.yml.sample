@@ -54,3 +54,7 @@ production:
   host: <%= ENV['RM_DATABASE_HOST'] %>
   username: <%= ENV['RM_DATABASE_USERNAME'] %>
   password: <%= ENV['RM_DATABASE_PASSWORD'] %>
+
+# multiple db config
+other_db_config:
+  <<: *default

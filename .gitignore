@@ -21,3 +21,8 @@ env.sh
 
 /.idea
 /.vscode
+
+.generators
+.rakeTasks
+
+Gemfile.lock

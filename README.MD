@@ -2,7 +2,7 @@
 ======
 
 ## Env
-ruby: 2.5.7+
+test on ruby: 2.4.4, 2.5.7
 ## Usage
 
 1. install ruby

@@ -1,4 +1,6 @@
-require File.expand_path('../boot', __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path('boot', __dir__)
 
 require 'rails/all'
 
@@ -21,8 +23,7 @@ module RM
     # config.i18n.default_locale = :de
 
     console do
-      require "application_helper"
-      puts 'connect db...'
+      require 'application_helper'
       ActiveRecord::Base.connection
     end
   end
